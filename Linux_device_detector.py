@@ -26,7 +26,33 @@ for i in range(0,255):
         else:
             linux_hostnames.append(str("unavailable | " + "192.168.0."+str(i)))
     print(linux_hostnames)
-
+xc = {
+    "Setup" : True,
+    "pis" : {
+        0 : {   
+        },
+        1 : {   
+        },
+        2 : {   
+        },
+        3 : {   
+        },
+        4 : {   
+        },
+        5 : {   
+        },
+        6 : {   
+        },
+        7 : {   
+        },
+        8 : {   
+        },
+        9 : {   
+        },
+        10 : {   
+        }
+    }
+}
 spliced_ips = []
 spliced_hostnames = []
 for x in linux_hostnames:
@@ -40,14 +66,15 @@ for x in linux_hostnames:
     hostname = hostname.strip()
     spliced_ips.append(ip)
     spliced_hostnames.append(hostname)
-x = {
-    "Setup" : True,
-    "ips": spliced_ips,
-    "hostnames": spliced_hostnames,
-}
-print(json.dumps(x))
-xy = json.dumps(x)
+for x in range(len(spliced_ips)):
+    ip = spliced_ips[x]
+    host = spliced_hostnames[x]
+    xc["pis"][x]["ip"] = ip
+    xc["pis"][x]["hostname"] = host
+
+print(json.dumps(xc))
+temp = json.dumps(xc)
 f = open("ip_config.txt", "w")
-f.write(xy)
+f.write(temp)
 f.close
         

@@ -1,7 +1,7 @@
 from telegram_menu import BaseMessage, TelegramMenuSession, NavigationHandler
 import json
 
-API_KEY = "5815583689:AAEHQxXoLxMpmd-qAxm7k78tshxZEsNK_BA"
+API_KEY = "APIhere"
 
 x = open('ip_config.txt', 'r')
 xy = x.read()
